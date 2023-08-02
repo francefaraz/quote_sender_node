@@ -1,0 +1,20 @@
+const mongoose=require('mongoose')
+// var autoIncrement = require('mongoose-auto-increment'); // 2. require mongoose-auto-increment
+// autoIncrement.initialize(mongoose.connection); // 3. initialize autoIncrement 
+
+const quoteSchema=new mongoose.Schema({
+
+    // quoteId:{type:Number,required:true},
+    quote:{type:String,required:true,unique:true},
+    quoteTitle:{type:String,required:true,default:"Today's Quote"},
+    quoteAuthor:{type:String,default:"Shaik Muneer"}
+
+    // quote description,quote title,quote author,qid
+})
+
+// quoteSchema.plugin(autoIncrement.plugin, { model: 'Quotes', field: 'quoteId' });
+quoteSchema.index({ _id: 1 }, { unique: true }); // Ensure uniqueness for the _id field
+
+const Quote=mongoose.model('Quotes',quoteSchema)
+
+module.exports=Quote
