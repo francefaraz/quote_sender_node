@@ -6,7 +6,7 @@ const cors = require('cors')
 app.use(cors())
 app.use(express.json())
 
-
+app.get('/',(req,res)=>res.send("HELLO WELCOME THIS APP IS MADED BY FAR (MYSELF ANDROID)"))
 app.get('/ping', (req, res) => res.send('SERVER IS WORKING FINE'))
 
 const dbConnection=require('./configs/db')
