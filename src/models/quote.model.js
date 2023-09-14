@@ -1,6 +1,4 @@
 const mongoose=require('mongoose')
-// var autoIncrement = require('mongoose-auto-increment'); // 2. require mongoose-auto-increment
-// autoIncrement.initialize(mongoose.connection); // 3. initialize autoIncrement 
 
 const quoteSchema=new mongoose.Schema({
 
