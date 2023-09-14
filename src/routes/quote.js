@@ -4,7 +4,7 @@ const {
   getAllQuotes,
   getPageQuote,
   getRandomQuote,
-} = require('../controllers/quotes.controller');
+} = require('../controllers/quote.controller');
 const { isAuthorized } = require('../middlewares/auth');
 
 const routes = new Router();
