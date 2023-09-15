@@ -19,17 +19,16 @@ const sendCustomNotification = async (req, res) => {
 
   try {
     const requestBody = JSON.stringify(notifyData);
-    const config = {
+    const config = await {
       method: 'post',
-      maxBodyLength: Infinity,
       url: 'https://fcm.googleapis.com/fcm/send',
       headers: {
-        Authorization: `key=${process.env.QUOTE_SERVER_KEY}`,
+        'Authorization': `key=${process.env.QUOTE_SERVER_KEY}`,
         'Content-Type': 'application/json',
       },
       data: notifyData,
     };
-
+    console.log("config data is",config)
     await axios.request(config);
     res.status(200).json({ success: true, message: "Notification Successfully Sent" });
   } catch (error) {

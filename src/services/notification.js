@@ -17,7 +17,7 @@ var notify_data = {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'https://fcm.googleapis.com/fcm/sen',
+      url: 'https://fcm.googleapis.com/fcm/send',
       headers: { 
         'Authorization': `key=${process.env.QUOTE_SERVER_KEY}`, 
         'Content-Type': 'application/json'
