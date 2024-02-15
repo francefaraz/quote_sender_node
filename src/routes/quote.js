@@ -11,6 +11,7 @@ const routes = new Router();
 
 // Send custom notification
 routes.post('/sendcustomnotify', isAuthorized, sendCustomNotification);
+routes.post('/sendquotetomobile', sendCustomNotification);
 
 // Get all quotes
 routes.get('/getallquotes', isAuthorized, getAllQuotes);
