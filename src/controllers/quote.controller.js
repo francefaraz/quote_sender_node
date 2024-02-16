@@ -90,9 +90,46 @@ const getRandomQuote = async (req, res) => {
   }
 };
 
+
+// Controller method to handle liking a quote
+const likeQuote = async (req, res) => {
+  try {
+      const quoteId = req.params.quoteId;
+      const updatedQuote = await quotes.findByIdAndUpdate(quoteId, { $inc: { likes: 1 } }, { new: true });
+
+      if (!updatedQuote) {
+          return res.status(404).json({ error: 'Quote not found' });
+      }
+
+      res.json(updatedQuote);
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+// Controller method to handle disliking a quote
+const dislikeQuote = async (req, res) => {
+  try {
+      const quoteId = req.params.quoteId;
+      const updatedQuote = await quotes.findByIdAndUpdate(quoteId, { $inc: { dislikes: 1 } }, { new: true });
+
+      if (!updatedQuote) {
+          return res.status(404).json({ error: 'Quote not found' });
+      }
+
+      res.json(updatedQuote);
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 module.exports = {
   sendCustomNotification,
   getAllQuotes,
   getPageQuote,
   getRandomQuote,
+  likeQuote,
+  dislikeQuote
 };

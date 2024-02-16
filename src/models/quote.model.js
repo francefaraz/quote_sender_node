@@ -5,7 +5,9 @@ const quoteSchema=new mongoose.Schema({
     // quoteId:{type:Number,required:true},
     quote:{type:String,required:true,unique:true},
     quoteTitle:{type:String,required:true,default:"Today's Quote"},
-    quoteAuthor:{type:String,default:"Shaik Muneer"}
+    quoteAuthor:{type:String,default:"Shaik Muneer"},
+    likes: { type: Number, default: 0 },
+    dislikes: { type: Number, default: 0 }
 
     // quote description,quote title,quote author,qid
 })

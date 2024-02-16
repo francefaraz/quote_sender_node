@@ -4,6 +4,8 @@ const {
   getAllQuotes,
   getPageQuote,
   getRandomQuote,
+  dislikeQuote,
+  likeQuote
 } = require('../controllers/quote.controller');
 const { isAuthorized } = require('../middlewares/auth');
 
@@ -21,5 +23,11 @@ routes.get('/pagequote', isAuthorized, getPageQuote);
 
 // Get a random quote
 routes.get('/getrandomquote', isAuthorized, getRandomQuote);
+
+routes.get('/getquote',getRandomQuote)
+
+routes.put('/:quoteId/like', likeQuote);
+routes.put('/:quoteId/dislike',dislikeQuote);
+
 
 module.exports = routes;
