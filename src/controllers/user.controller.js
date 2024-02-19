@@ -75,7 +75,7 @@ const loginUser = async (req, res) => {
     if (user.password === password) {
         console.log("HELLO")
       const token = jwt.sign({ email: email }, process.env.QUOTE_SECRET_KEY, {
-        expiresIn: '1h',
+        expiresIn: '10h',
       });
 
       res.status(200).json({ success: true, token: token, message: 'SUCCESSFULLY LOGGED IN' });
