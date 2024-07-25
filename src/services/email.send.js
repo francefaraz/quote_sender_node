@@ -12,7 +12,7 @@ console.log(process.env.SMTP_PASSWORD)
     
 //  })
 
- const transpoter=nodeMailer.createTransport({
+const transpoter=nodeMailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'thomas.webeqt@gmail.com',
@@ -21,7 +21,7 @@ console.log(process.env.SMTP_PASSWORD)
 });
 
 
- const sendOtp=async(otp,email,username)=>{
+const sendOtp=async(otp,email,username)=>{
     const mailData={
         from:"noreply@farstudios.com",
         to:email,
@@ -49,7 +49,7 @@ console.log(process.env.SMTP_PASSWORD)
 
 
 
- }
+}
 
 
- module.exports={sendOtp}
+module.exports={sendOtp}

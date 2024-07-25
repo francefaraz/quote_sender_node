@@ -125,11 +125,33 @@ const dislikeQuote = async (req, res) => {
   }
 };
 
+const addQuote = async (req, res) => {
+  try {
+       
+     const quoteAdd= new quotes({
+      quote:req.body.quote,
+      quoteTitle:req.body.title || "Today's Quote",
+      quoteAuthor:req.body.author || "Shaik Muneer"
+     })
+    await quoteAdd.save();
+    res.status(201).json({ message: 'Quote saved successfully', quoteAdd });
+
+  } catch (error) {
+      console.error(error);
+      if (error.code === 11000) {
+        res.status(400).json({ message: 'Duplicate Quote record' });
+      } else {
+        res.status(500).json({ message: 'Error saving Quote', error: error.message });
+      }  }
+};
+
+
 module.exports = {
   sendCustomNotification,
   getAllQuotes,
   getPageQuote,
   getRandomQuote,
   likeQuote,
-  dislikeQuote
+  dislikeQuote,
+  addQuote
 };
