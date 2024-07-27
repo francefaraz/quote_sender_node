@@ -17,7 +17,7 @@ app.use('/api',users)
 
 app.use('/api',quote_routes)
 
-
+app.use(express.urlencoded({ extended: true }));
 
 app.post('/testing_hook',(req,res)=>{
     console.log("HELLO BRO ")
