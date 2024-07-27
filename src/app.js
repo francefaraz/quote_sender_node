@@ -19,7 +19,10 @@ app.use('/api',quote_routes)
 
 
 
-
+app.post('/testing_hook',(req,res)=>{
+    console.log("HELLO BRO ")
+    console.log(req.body,"req body is")
+})
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
