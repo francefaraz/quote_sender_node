@@ -22,6 +22,11 @@ app.use('/api',quote_routes)
 app.post('/testing_hook',(req,res)=>{
     console.log("HELLO BRO ")
     console.log(req.body,"req body is")
+    res.status(200).json({
+        success: true,
+        message: "Request body received successfully",
+        data: req.body
+    });
 })
 
 
